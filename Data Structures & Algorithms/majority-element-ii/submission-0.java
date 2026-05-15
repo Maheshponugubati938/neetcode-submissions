@@ -1,0 +1,18 @@
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        
+        Map <Integer,Integer> map = new HashMap<>();
+        List <Integer> ans = new ArrayList<>();
+        int deadLine = nums.length / 3;
+        for(int i = 0; i < nums.length; i++){
+            map.put(nums[i], map.getOrDefault(nums[i],0)+1);
+        }
+
+        for(int val : map.keySet()){
+            if(map.get(val) > deadLine){
+                ans.add(val);
+            }
+        }
+        return ans;
+    }
+}
